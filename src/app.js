@@ -1,4 +1,4 @@
-import Ipsum from './words.js';
+import Ipsum from './ipsum.config.js';
 import Paragraph from './paragraph.js';
 
 class Header extends React.Component {
@@ -42,23 +42,17 @@ class Main extends React.Component {
     super(props);
 
     this.state = {
-      subhead: '',
-      words: '',
-      phrases: '',
-      puncuation: ''
+      subhead: ''
     }
   }
 
   componentDidMount() {
-    const {words, subhead, phrases, puncuation} = Ipsum;
-    this.setState({words, subhead, phrases, puncuation});
+    const {subhead} = Ipsum;
+    this.setState({subhead});
   }
 
   render() {
-    let text = '';
-    if (this.state.words) {
-      text = Paragraph.build(this.state.words.concat(this.state.phrases), '', this.state.puncuation, false);
-    }
+    const text = Paragraph.build(false);
 
     return (
       <div>
