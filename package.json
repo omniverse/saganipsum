@@ -1,0 +1,24 @@
+{
+  "name": "sa",
+  "version": "1.0.0",
+  "author": "Todd Wallar and Luke Dorny",
+  "scripts": {
+    "go": "open http://localhost:3000; npm run server",
+    "start": "npm run server",
+    "build": "./node_modules/.bin/webpack --mode production",
+    "server": "live-server public --host=localhost --port=3000 --middleware=./disable-browser-cache.js"
+  },
+  "private": true,
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "concurrently": "2.2.0",
+    "live-server": "https://github.com/acco/live-server/tarball/master",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "babel-loader": "^7.1.5",
+    "webpack": "^4.16.2"
+  }
+}

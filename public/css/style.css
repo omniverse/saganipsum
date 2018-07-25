@@ -1,0 +1,305 @@
+/* @override http://saganipsum.com/css/style.css */
+
+
+body, button, input, select, textarea { font-family: sans-serif; }
+
+::-moz-selection { background: rgb(0,131,255); color: #fff; text-shadow: none; }
+::selection { background: rgb(0,131,255); color: #fff; text-shadow: none; }
+
+
+
+
+
+
+
+/* =============================================================================
+   Forms
+   ========================================================================== */
+
+form { margin: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+
+/*
+ * 1. Correct color not inheriting in IE6/7/8/9
+ * 2. Correct alignment displayed oddly in IE6/7
+ */
+
+legend { border: 0; *margin-left: -7px; padding: 0; }
+
+/* Indicate that 'label' will shift focus to the associated form element */
+label { cursor: pointer; }
+
+/*
+ * 1. Correct font-size not inheriting in all browsers
+ * 2. Remove margins in FF3/4 S5 Chrome
+ * 3. Define consistent vertical alignment display in all browsers
+ */
+
+button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+
+/*
+ * 1. Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet)
+ * 2. Correct inner spacing displayed oddly in IE6/7
+ */
+
+button, input { line-height: normal; *overflow: visible; }
+
+/*
+ * 1. Display hand cursor for clickable form elements
+ * 2. Allow styling of clickable form elements in iOS
+ */
+
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
+
+/*
+ * Consistent box sizing and appearance
+ */
+
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
+input[type="search"] { -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+
+/*
+ * Remove inner padding and border in FF3/4
+ * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+ */
+
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+
+/* Remove default vertical scrollbar in IE6/7/8/9 */
+textarea { overflow: auto; vertical-align: top; }
+
+/* Colors for form validity */
+input:valid, textarea:valid {  }
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+
+
+/* =============================================================================
+   Tables
+   ========================================================================== */
+
+
+
+
+/* =============================================================================
+   PLACEHOLDER Media Queries for Responsive Design.
+   These override the primary ('mobile first') styles
+   Modify as content requires.
+   ========================================================================== */
+
+
+html {
+}
+body {
+	background: #020202;
+	margin: 0;
+	padding: 0;
+}
+.billions {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: fixed;
+	z-index: -1;
+	background: transparent url('/img/opo1036a-sm.jpg') no-repeat 50% 50% ;
+	/* adapted from free-use image via http://www.spacetelescope.org/images/opo1036a/ */
+}
+@-moz-keyframes vortex {
+    from { -moz-transform:rotate(0deg); }
+    to   { -moz-transform:rotate(360deg); }
+}
+@-webkit-keyframes vortex {
+	from { -webkit-transform:rotate(0deg); }
+	to   { -webkit-transform:rotate(360deg); }
+}
+@keyframes vortex {
+	from { transform:rotate(0deg); }
+	to   { transform:rotate(360deg); }
+}
+
+body div {
+	background: transparent;
+}
+
+#container {
+
+}
+#main {
+	padding: 30px;
+	background: none;
+	margin: 0 auto;
+	color: #ffffff;
+	z-index: 0;
+}
+
+#main h1 {
+	text-align: center;
+	font-size: 20px;
+	color: #aaa;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	background-color: #000000;
+}
+#main h2 {
+	text-align: center;
+	font-size: 50px;
+	color: #ffffff;
+	text-shadow:
+		5px 5px 0 rgb(0, 131, 255),
+		4px 4px 0 rgb(0, 131, 255),
+		3px 3px 0 rgb(0, 131, 255),
+		2px 2px 0 rgb(0, 131, 255),
+		1px 1px rgb(0, 131, 255),
+		0 0 10px rgb(0, 0, 0);
+	margin: 10px 0;
+}
+#main form {
+	font-size: 19px;
+	min-width: 110px;
+	height: 50px;
+	margin: 20px auto;
+	position: relative;
+	text-align: center;
+}
+input {
+	background-color: rgba(255, 255, 255, .5);
+	margin-top: 4px;
+}
+input[type=text]:focus {
+	background-color: #000000;
+}
+input[type=text] {
+	font-size: 20px;
+	padding: 3px 8px;
+	width: 40px;
+	text-align: center;
+	color: #fff;
+	text-shadow: 1px 1px 3px black;
+	background-color: rgba(255, 255, 255, .2);
+	border: 0px solid transparent;
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+}
+input[type=submit] {
+	padding: 0;
+	height: 25px;
+	width: 100px;
+	color: #fff;
+	border: 0;
+	margin-left: 5px;
+	-moz-animation: throb 1s ease-in-out 0s infinite alternate;
+	-webkit-animation: throb 1s ease-in-out 0s infinite alternate;
+	animation: throb 1s ease-in-out 0s infinite alternate;
+}
+@-moz-keyframes throb {
+    from { background-color: rgba(255, 255, 255, .2); }
+    to   { background-color: rgba(255, 255, 255, .3); }
+}
+@-webkit-keyframes throb {
+	from { background-color: rgba(255, 255, 255, .2); }
+	to   { background-color: rgba(255, 255, 255, .3); }
+}
+@keyframes throb {
+	from { background-color: rgba(255, 255, 255, .2); }
+	to   { background-color: rgba(255, 255, 255, .3); }
+}
+input[type=checkbox] {
+	margin: 5px;
+	vertical-align: middle;
+	margin-top: -2px;
+}
+form label {
+	display: inline-block;
+	line-height: 25px;
+}
+#main div.universe {
+	background-color: transparent;
+}
+.universe p {
+	color: #fff;
+	font-size: 19px;
+	padding: 15px;
+	margin: auto;
+}
+
+#legacy {
+	display: block;
+	background-color: #333;
+	box-shadow:
+		0px 0px 45px #000,
+		0px 0px 45px #000,
+		0px 0px 45px #000,
+		0px 0px 45px #000;
+	margin: 0;
+	text-align: center;
+	color: #fff;
+}
+#legacy p {
+	color: #fff !important;
+	font-size: 11px;
+	line-height: 16px;
+	margin 2px auto;
+	padding: 0px 5px;
+}
+
+#legacy #carl {
+	float: left;
+	margin: 7px;
+}
+
+#clickme {
+	display: none;
+	margin: 1px;
+}
+
+@media only screen and (min-width: 480px) {
+  /* Style adjustments for viewports 480px and over go here */
+
+	#main {
+		padding: 50px;
+	}
+
+	.universe p {
+		text-shadow: 0px 1px 10px #000;
+	}
+
+}
+
+
+@media only screen and (min-width: 768px) {
+  /* Style adjustments for viewports 768px and over go here */
+
+	.billions {
+		-moz-animation: vortex 40s ease-in-out 0s infinite;
+		-webkit-animation: vortex 40s ease-in-out 0s infinite;
+		animation: vortex 40s ease-in-out 0s infinite ;
+	}
+
+	body {
+		-webkit-font-smoothing: antialiased;
+	}
+
+	#main h1 {
+		text-shadow: 1px 1px 3px #000;
+	}
+
+	#legacy {
+		position: fixed;
+		bottom: 0;
+	}
+
+	.universe p {
+		max-width: 80%;
+		line-height: 1.6em;
+
+	}
+
+	#main {
+		padding: 80px;
+	}
+
+	#clickme {
+		display: block;
+		text-align: center;
+		width: 100%;
+	}
+}
