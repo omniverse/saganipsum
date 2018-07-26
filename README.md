@@ -1,3 +1,6 @@
+## [Sagan Ipsum](http://saganipsum.com)
+
+
 ### Running the app
 
 1. Ensure you have `npm` installed.
@@ -17,3 +20,9 @@ npm run server
 ````
 
 The server is now running at [localhost:3000](localhost:3000)
+
+4. Build from src
+
+````
+npm run build
+````
