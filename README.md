@@ -1,4 +1,4 @@
-(Sagan Ipsum)[http://saganipsum.com]
+## [Sagan Ipsum](http://saganipsum.com)
 
 
 ### Running the app
