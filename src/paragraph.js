@@ -41,16 +41,22 @@ function buildSentence(parts, puncuation) {
 }
 
 export default {
-    build: function(isLastP) {
+    build: function(isLastP, doLatin) {
       const PSIZE = LOREM.split(' ').length; //word count
+      let wordbase = Ipsum.words.concat(Ipsum.phrases);
+
+      if (doLatin) {
+        wordbase = wordbase.concat(Ipsum.more_lorem);
+      }
 
       let text = '';
       while ( (text.split(' ')).length < PSIZE) {
-        text += buildSentence(Ipsum.words.concat(Ipsum.phrases), Ipsum.puncuation) + ' ';
+        text += buildSentence(wordbase, Ipsum.puncuation) + ' ';
       }
 
       if (isLastP) {
-        text += ending;
+        text = text.substring(0, text.length - 2);
+        text += Ipsum.ending;
       }
 
       return text;

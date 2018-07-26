@@ -1,23 +1,6 @@
 import Ipsum from './ipsum.config.js';
 import Paragraph from './paragraph.js';
-
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      head: ''
-    }
-  }
-
-  componentDidMount() {
-    this.setState({head: Ipsum.head});
-  }
-
-  render() {
-    return this.state.head;
-  }
-}
+import PForm from './pform.js';
 
 class Title extends React.Component {
   constructor(props) {
@@ -42,31 +25,53 @@ class Main extends React.Component {
     super(props);
 
     this.state = {
-      subhead: ''
+      head: '',
+      subhead: '',
+      numParagraphs: 1,
+      useLatin: false
     }
+
+    this.onParagraphChange = this.onParagraphChange.bind(this);
+    this.onLatinChange = this.onLatinChange.bind(this);
   }
 
   componentDidMount() {
-    const {subhead} = Ipsum;
-    this.setState({subhead});
+    const {head, subhead} = Ipsum;
+    this.setState({head, subhead});
+  }
+
+  onParagraphChange(numParagraphs) {
+    const newNum = numParagraphs;
+    this.setState(Object.assign(this.state, {numParagraphs: newNum}));
+  }
+  onLatinChange(useLatin) {
+    this.setState(Object.assign(this.state, {useLatin}));
   }
 
   render() {
-    const text = Paragraph.build(false);
+    let text = [];
+
+    if (parseInt(this.state.numParagraphs) > 0) {
+      for(let ph = 0; ph < this.state.numParagraphs; ph++) {
+        let isLast = (ph === this.state.numParagraphs - 1);
+        text.push(<p>{Paragraph.build(isLast, this.state.useLatin*1)}</p>);
+      }
+    }
 
     return (
       <div>
-      <div className='billions'></div>
-      <div id='container'>
-        <div id='main' role='main'>
-          <h2>{this.state.subhead}</h2>
+        <h1>{this.state.head}</h1>
+        <h2>{this.state.subhead}</h2>
+        <PForm
+          numParagraphs={this.state.numParagraphs}
+          useLatin={this.state.useLatin}
+          onParagraphChange={this.onParagraphChange}
+          onLatinChange={this.onLatinChange} />
           <label id='clickme'>select text</label>
           <div id='clip' className='universe'>
-            <p>{text}</p>
+            {text}
           </div>
-        </div>
-      </div>
-      <div styles={{color: 'transparent'}}>&nbsp;</div>
+        <div styles={{color: 'transparent'}}>&nbsp;</div>
       </div>
     )
   }
@@ -79,10 +84,5 @@ ReactDOM.render(
 
 ReactDOM.render(
   <Main />,
-  document.getElementById('content')
-)
-
-ReactDOM.render(
-  <Header />,
-  document.getElementById('header')
+  document.getElementById('main')
 )
