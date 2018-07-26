@@ -24,9 +24,11 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
 
+    const {head, subhead} = Ipsum;
+
     this.state = {
-      head: '',
-      subhead: '',
+      head: head,
+      subhead: subhead,
       numParagraphs: 1,
       useLatin: false
     }
@@ -36,8 +38,22 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    const {head, subhead} = Ipsum;
-    this.setState({head, subhead});
+  }
+
+  onSelectClick() {
+    const text = document.getElementById('clip');
+    const selection = window.getSelection();
+    const range = document.createRange();
+
+    range.selectNodeContents(text);
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    // function clearText() {
+    //         var selection = window.getSelection();
+    //         selection.removeAllRanges();
+    // }
+
   }
 
   onParagraphChange(numParagraphs) {
@@ -54,7 +70,7 @@ class Main extends React.Component {
     if (parseInt(this.state.numParagraphs) > 0) {
       for(let ph = 0; ph < this.state.numParagraphs; ph++) {
         let isLast = (ph === this.state.numParagraphs - 1);
-        text.push(<p>{Paragraph.build(isLast, this.state.useLatin*1)}</p>);
+        text.push(<p key={ph}>{Paragraph.build(isLast, this.state.useLatin*1)}</p>);
       }
     }
 
@@ -67,11 +83,10 @@ class Main extends React.Component {
           useLatin={this.state.useLatin}
           onParagraphChange={this.onParagraphChange}
           onLatinChange={this.onLatinChange} />
-          <label id='clickme'>select text</label>
+          <label id='clickme' onClick={this.onSelectClick}>[select text]</label>
           <div id='clip' className='universe'>
             {text}
           </div>
-        <div styles={{color: 'transparent'}}>&nbsp;</div>
       </div>
     )
   }

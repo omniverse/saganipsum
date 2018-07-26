@@ -20,9 +20,9 @@ export default class PForm extends React.Component  {
 
     return (
       <div>
-        <form action="" method="get">
-          <input type="text" name="p" onChange={this.onChangeParagraph} value={this.props.numParagraphs} />
-          <label for="latin"><input type="checkbox" id="latin" name="latin" onChange={this.onChangeLatin} checked={!!this.props.useLatin}  />Latin nebulas</label>
+        <form action='' method='get'>
+          <input type='text' name='p' onChange={this.onChangeParagraph} value={this.props.numParagraphs} />
+          <label htmlFor='latin'><input type='checkbox' id='latin' name='latin' onChange={this.onChangeLatin} checked={!!this.props.useLatin}  />Latin nebulas</label>
         </form>
       </div>
       )
